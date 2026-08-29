@@ -8,8 +8,6 @@
 (function () {
   'use strict';
 
-  var REPO_RAW = 'https://raw.githubusercontent.com/rohitg00/ai-engineering-from-scratch/';
-
   function isLocal() {
     var host = window.location.hostname;
     return host === 'localhost' || host === '127.0.0.1' || host === '::1' || host === '[::1]';
@@ -21,8 +19,13 @@
 
   function rawRepoUrl(path) {
     var safe = clean(path);
-    var ref = window.__AIFS_REF || 'main';
-    return REPO_RAW + ref + '/' + safe;
+    var configured = window.__AIFS_SOURCE || {};
+    var owner = /^[A-Za-z0-9-]+$/.test(configured.owner || '') ? configured.owner : 'rohitg00';
+    var repo = /^[A-Za-z0-9_.-]+$/.test(configured.repo || '') ? configured.repo : 'ai-engineering-from-scratch';
+    var revision = /^[A-Za-z0-9._/-]+$/.test(configured.revision || '')
+      ? configured.revision
+      : (window.__AIFS_REF || 'main');
+    return 'https://raw.githubusercontent.com/' + owner + '/' + repo + '/' + revision + '/' + safe;
   }
 
   function repoUrl(path) {
