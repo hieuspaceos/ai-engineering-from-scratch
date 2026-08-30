@@ -1,0 +1,12 @@
+{
+  "name": "ai-engineering-from-scratch",
+  "version": "1.0.0",
+  "description": "AI Engineering from Scratch curriculum (511 lessons, 20 phases) ported as an omp plugin. Provides 8 slash-command skills: start-learning, learn, learn-mcp, course-guide, check-understanding, find-your-level, learn-agent-skills, claude-certification.",
+  "main": "skills/start-learning/SKILL.md",
+  "author": "rohitg00 <https://github.com/rohitg00/ai-engineering-from-scratch>",
+  "license": "MIT",
+  "keywords": ["ai", "machine-learning", "llm", "agents", "mcp", "curriculum", "education"],
+  "engines": {
+    "omp": ">=18.0.0"
+  }
+}
